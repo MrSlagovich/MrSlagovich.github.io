@@ -29,29 +29,37 @@
   <link rel="stylesheet" href="css/Darkly.css" />
 
   <style>
-  .contrib-number{
-    color: white;
-    
-  }
-  .video-fluid {
-  max-width: 100%;
-  height: auto;
-}
+    .contrib-number {
+      color: white;
 
-  @media all and (max-width: 1200px) { /* screen size until 1200px */
-    body {
-        font-size: 1.5em; /* 1.5x default size */
     }
-}
-@media all and (max-width: 1000px) { /* screen size until 1000px */
-    body {
-        font-size: 1.2em; /* 1.2x default size */
-        }
+
+
+    @media all and (max-width: 1200px) {
+
+      /* screen size until 1200px */
+      body {
+        font-size: 1.5em;
+        /* 1.5x default size */
+      }
     }
-@media all and (max-width: 500px) { /* screen size until 500px */
-    body {
-        font-size: 0.8em; /* 0.8x default size */
-        }
+
+    @media all and (max-width: 1000px) {
+
+      /* screen size until 1000px */
+      body {
+        font-size: 1.2em;
+        /* 1.2x default size */
+      }
+    }
+
+    @media all and (max-width: 500px) {
+
+      /* screen size until 500px */
+      body {
+        font-size: 0.8em;
+        /* 0.8x default size */
+      }
     }
   </style>
   <title>FPS Generator</title>
@@ -90,6 +98,7 @@
       </ul>
     </div>
   </nav>
+
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
@@ -100,18 +109,14 @@
       <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
     </ol>
 
-    <div class="carousel-inner">
+    <div class="carousel-inner" style=" width:100%; max-height: 500px !important;">
       <div class="carousel-item active">
-        <div class="embed-responsive ">
-          <iframe class="video-fluid" src="https://www.youtube.com/embed/px0jYWci8t0"
-            allowfullscreen></iframe>
-        </div>
+        <img class="d-block w-100" src="images/fps_overlay.png" height="500" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="images/fps_overlay.png"
-          alt="Second slide">
+        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/px0jYWci8t0" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-      
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -137,7 +142,8 @@
       <div class="col-md">
         <br>
         <br>
-        <p style= "border: rgb(222, 226, 230) solid;border-width:1px; padding: 25;"class=text-left> <span class="font-weight-bold">About The Tool:</span> The tool is being created to speed
+        <p style="border: rgb(222, 226, 230) solid;border-width:1px; padding: 25;" class=text-left> <span
+            class="font-weight-bold">About The Tool:</span> The tool is being created to speed
           up
           the level creation process by delivering a new level creation pipeline. The tool isn't platform specific
           meaning
@@ -192,29 +198,30 @@
       <div class="col-lg">
         <br>
         <br>
-        <a href="https://mrslagovich.itch.io/fpslevelgen" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Download</a>
+        <a href="https://mrslagovich.itch.io/fpslevelgen" class="btn btn-primary btn-lg disabled" role="button"
+          aria-disabled="true">Download</a>
         <div class="embed-responsive embed-responsive-16by9">
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/px0jYWci8t0"
             allowfullscreen></iframe>
-        </div> 
+        </div>
         <br>
 
         <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMzU0NDM5LzIxMTAzNTYuZ2lm/347x500/5bn%2FvH.gif"
-          alt="loot1"> 
+          alt="loot1">
         <br>
         <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMzU0NDM5LzIxMTAzNjAucG5n/347x500/wi5n1D.png"
-          alt="loot2"> 
+          alt="loot2">
         <br>
         <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMzU0NDM5LzIxMTAzNjEucG5n/347x500/M5NGBr.png"
-          alt="loot3"> 
+          alt="loot3">
         <br>
         <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMzU0NDM5LzIxMTAzODQuZ2lm/347x500/TesPht.gif"
-          alt="loot4"> 
+          alt="loot4">
         <br>
 
       </div>
-      </div>
     </div>
+  </div>
 </body>
 
 </html>
