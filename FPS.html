@@ -33,6 +33,11 @@
     color: white;
     
   }
+  .video-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
   @media all and (max-width: 1200px) { /* screen size until 1200px */
     body {
         font-size: 1.5em; /* 1.5x default size */
@@ -97,27 +102,16 @@
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/px0jYWci8t0"
+        <div class="embed-responsive ">
+          <iframe class="video-fluid" src="https://www.youtube.com/embed/px0jYWci8t0"
             allowfullscreen></iframe>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMzU0NDM5LzIxMTAzNTYuZ2lm/347x500/5bn%2FvH.gif"
+        <img class="d-block w-100" src="images/fps_overlay.png"
           alt="Second slide">
       </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMzU0NDM5LzIxMTAzNjAucG5n/347x500/wi5n1D.png"
-          alt="Third slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMzU0NDM5LzIxMTAzNjEucG5n/347x500/M5NGBr.png"
-          alt="Fourth slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMzU0NDM5LzIxMTAzODQuZ2lm/347x500/TesPht.gif"
-          alt="Fourth slide">
-      </div>
+      
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
