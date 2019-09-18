@@ -57,6 +57,25 @@
         /* 0.8x default size */
       }
     }
+    @media (orientation: portrait) { 
+    .carousel-item.active,
+    .carousel-item-next,
+    .carousel-item-prev {
+        display: block;
+        width:100%;
+        height:auto;
+    }
+}
+
+@media (orientation: landscape) { 
+    .carousel-item.active,
+    .carousel-item-next,
+    .carousel-item-prev {
+        display: block;
+        width:100%;
+        height:auto;
+    }
+}
   </style>
 
 
@@ -107,8 +126,8 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a href="FPS.html">
-          <img class="d-block w-100" src="images/index_fps.png"
-            alt="First slide">
+          <img class="img-fluid" src="images/index_fps.png"
+            alt="First slide" >
         </a>
         <div class="carousel-caption d-none d-md-block">
           <h3>FPS Procedural Level Generator</h3>
@@ -117,7 +136,7 @@
       </div>
       <div class="carousel-item">
         <a href="Lootchadors.html">
-          <img class="d-block w-100 " src="images/index_loot.png"
+          <img class="img-fluid"  src="images/index_loot.png"
             alt="Second slide">
         </a>
         <div class="carousel-caption d-none d-md-block">
@@ -128,7 +147,7 @@
 
       <div class="carousel-item">
         <a href="Submission.html">
-          <img class="d-block w-100" src="images/index_sub.png"
+          <img class="img-fluid" src="images/index_sub.png"
             alt="Third slide">
         </a>
         <div class="carousel-caption d-none d-md-block">
@@ -139,7 +158,7 @@
       </div>
       <div class="carousel-item">
         <a href="Cowboy.html">
-          <img class="d-block w-100" src="images/index_cowboy.png"
+          <img class="img-fluid" src="images/index_cowboy.png"
             alt="Fourth slide">
         </a>
         <div class="carousel-caption d-none d-md-block">
