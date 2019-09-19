@@ -23,42 +23,68 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/Darkly.css" />
-
   <style>
-    .carousel-caption {
+        .carousel-caption {
       background: rgba(0, 0, 0, 0.4);
 
     }
+      @media all and (max-width: 1920px) {
 
+          /* screen size until 1200px */
+          body {
+              font-size: 1.5em;
+              /* 1.5x default size */
+          }
 
-    @media all and (max-width: 1200px) {
-
-      /* screen size until 1200px */
-      body {
-        font-size: 1.5em;
-        /* 1.5x default size */
+          img {
+              width: 100%;
+              max-height: 750px;
+          }
       }
-    }
 
-    @media all and (max-width: 1000px) {
+      @media all and (max-width: 1200px) {
 
-      /* screen size until 1000px */
-      body {
-        font-size: 1.2em;
-        /* 1.2x default size */
+          /* screen size until 1200px */
+          body {
+              font-size: 1.5em;
+              /* 1.5x default size */
+          }
+
+          img {
+              width: 100%;
+              max-height: 750px;
+          }
       }
-    }
 
-    @media all and (max-width: 500px) {
+      @media all and (max-width: 1000px) {
 
-      /* screen size until 500px */
-      body {
-        font-size: 0.8em;
-        /* 0.8x default size */
+          /* screen size until 1000px */
+          body {
+              font-size: 1.2em;
+              /* 1.2x default size */
+          }
+
+          img {
+              width: 100%;
+              max-height: 750px;
+          }
       }
-    }
 
+      @media all and (max-width: 500px) {
+
+          /* screen size until 500px */
+          body {
+              font-size: 0.8em;
+              /* 0.8x default size */
+          }
+
+          img {
+              width: 100%;
+              max-height: 500px;
+          }
+      }
   </style>
+
 
 
   <title>Home Page</title>
@@ -108,7 +134,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a href="FPS.html">
-          <img style='width:100%;' src="images/index_fps.png"
+          <img src="images/fps_overlay.png"
             alt="First slide" >
         </a>
         <div class="carousel-caption d-none d-md-block">
@@ -118,7 +144,7 @@
       </div>
       <div class="carousel-item">
         <a href="Lootchadors.html">
-          <img style='width:100%;' class="img-fluid"  src="images/index_loot.png"
+          <img  src="images/index_loot.png"
             alt="Second slide">
         </a>
         <div class="carousel-caption d-none d-md-block">
@@ -129,7 +155,7 @@
 
       <div class="carousel-item">
         <a href="Submission.html">
-          <img style='width:100%;'class="img-fluid" src="images/index_sub.png"
+          <img src="images/index_sub.png"
             alt="Third slide">
         </a>
         <div class="carousel-caption d-none d-md-block">
@@ -140,7 +166,7 @@
       </div>
       <div class="carousel-item">
         <a href="Cowboy.html">
-          <img style='width:100%;'class="img-fluid" src="images/index_cowboy.png"
+          <img  src="images/index_cowboy.png"
             alt="Fourth slide">
         </a>
         <div class="carousel-caption d-none d-md-block">

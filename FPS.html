@@ -27,13 +27,20 @@
   <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
   <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
   <link rel="stylesheet" href="css/Darkly.css" />
-
   <style>
-    .contrib-number {
-      color: white;
+    @media all and (max-width: 1920px) {
 
+      /* screen size until 1200px */
+      body {
+        font-size: 1.5em;
+        /* 1.5x default size */
+      }
+
+      img {
+        width: 100%;
+        max-height: 750px;
+      }
     }
-
 
     @media all and (max-width: 1200px) {
 
@@ -41,6 +48,11 @@
       body {
         font-size: 1.5em;
         /* 1.5x default size */
+      }
+
+      img {
+        width: 100%;
+        max-height: 750px;
       }
     }
 
@@ -51,6 +63,11 @@
         font-size: 1.2em;
         /* 1.2x default size */
       }
+
+      img {
+        width: 100%;
+        max-height: 750px;
+      }
     }
 
     @media all and (max-width: 500px) {
@@ -59,6 +76,11 @@
       body {
         font-size: 0.8em;
         /* 0.8x default size */
+      }
+
+      img {
+        width: 100%;
+        max-height: 500px;
       }
     }
   </style>
@@ -105,13 +127,20 @@
       </li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+
     </ol>
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img style='width:100%;' src="images/fps_overlay.png"  alt="First slide">
+        <img src="images/fps_overlay.png" alt="First slide">
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/fps_menu.png" alt="First slide">
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/fps_overview.png" alt="First slide">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -123,7 +152,7 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  </div>
+
 
   <div class="container">
     <div class="row">
@@ -136,11 +165,12 @@
     </div>
     <div class="row">
       <div class="col-md-6 ">
-          <br>
-          <br>
-          <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/px0jYWci8t0" allowfullscreen></iframe>
-            </div>
+        <br>
+        <br>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/px0jYWci8t0"
+            allowfullscreen></iframe>
+        </div>
         <br>
         <br>
         <p style="border: rgb(222, 226, 230) solid;border-width:1px; padding: 25;" class=text-left> <span
@@ -199,10 +229,12 @@
       <div class="col-md-6 ">
         <br>
         <br>
-        <a href="https://mrslagovich.itch.io/fpslevelgen" class="btn btn-primary btn-lg disabled" role="button"
+        <a href="https://mrslagovich.itch.io/fpslevelgen" class="btn btn-primary " role="button"
           aria-disabled="true">Download</a>
         <br>
 
+        <img class="d-block w-100" src="images/fps_overlay.png" alt="loot1">
+        <br>
         <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMzU0NDM5LzIxMTAzNTYuZ2lm/347x500/5bn%2FvH.gif"
           alt="loot1">
         <br>
@@ -215,6 +247,22 @@
         <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMzU0NDM5LzIxMTAzODQuZ2lm/347x500/TesPht.gif"
           alt="loot4">
         <br>
+        <img class="d-block w-100" src="images/Doom_Dungeon_Level_Generator_(DDLG)_2019-04-28_21-25-40.png"
+          alt="loot4">
+        <br>
+        <img class="d-block w-100" src="images/Doom_Dungeon_Level_Generator_(DDLG)_2019-04-29_01-15-30.png"
+          alt="loot4">
+        <br>
+        <img class="d-block w-100" src="images/Doom_Dungeon_Level_Generator_(DDLG)_2019-04-29_04-10-09.png"
+          alt="loot4">
+        <br>
+        <img class="d-block w-100" src="images/fps_menu.png"
+          alt="loot4">
+        <br>
+
+        <img class="d-block w-100" src="images/fps_overview.png"
+        alt="loot4">
+      <br>
 
       </div>
     </div>
