@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -99,12 +98,9 @@
 </header>
 
 <body>
-
-
-    <div class="container">
-
+    <div class="container-fluid" style="width: 80%;">
         <div class="row">
-            <div class="col-md">
+            <div class="col-xl">
                 <!-- <br>
                 <br>
                 <div class="embed-responsive embed-responsive-16by9">
@@ -116,28 +112,25 @@
                 <br>
 
                 <p class="text-left">
-                    <h2 class="font-weight-bold">History:</h2> <br> Lootchadors is a game which was developed between 2017-1018 as part of a client brief for university. The project laid dormant between 2018-2021. During this time I constantly thought about new ideas for the game
-                    and starting the project again. In my 2021 I quit my job and decided to make a go of trying to develop the game fully. Started from scratch and scrapped the original prototype.
+                    <h2 class="font-weight-bold">History:</h2> Lootchadors is a game which was developed between 2017-2018 as part of a client brief for university. The project laid dormant between 2018-2021. During this time I constantly thought about new ideas for the game and
+                    starting the project again. In 2021 I quit my job and decided to make a go of trying to develop the game fully. Started from scratch and scrapped the original prototype.
                     <br>
                     <br>
-                    <h2 class="font-weight-bold">About The Game:</h2> <br>
-
-                    <span class="font-weight-bold">About The Game:</span> Lootchadors is a local multiplayer game. The aim of the game is to loot museums and be the one to have the most money at the end of the round. You can throw each other, punch each
-                    other, use power ups on each other and dash into each other to cause mayhem!
+                    <h2 class="font-weight-bold">About The Game:</h2> Lootchadors is a local multiplayer game. The aim of the game is to loot museums and be the one to have the most money at the end of the round. You can throw each other, punch each other, use power ups on each other
+                    and dash into each other to cause mayhem!
                     <br>
                     <br> The game is being developed in UE4 and I’m currently working towards having a polished prototype.
                     <br>
                     <br>
                     <h2 class="font-weight-bold">My Role:</h2>
-                    <br> For this project I’ve been doing gameplay programming, design, project management and managing contractors.
+                    For this project I’ve been doing gameplay programming, design, project management and managing contractors.
                     <br>
                     <br> Some features I’ve designed and implemented:
-
                     <ul>
-                        <li>Camera that moves its position and follows the middle position between all players. </li>
-                        <li>Offscreen Camera System which draws a view of a player if they are too small in the current viewport or offscreen. Means the main gameplay camera doesn’t zoom out so far no one can see themselves in the game.
+                        <li>Camera that moves its position and follows the average position between all players. </li>
+                        <li>Offscreen Camera System which draws a view of a player if they are too small in the current viewport or offscreen. Means the main gameplay camera doesn’t zoom out so far that no one can see themselves in the game.
                         </li>
-                        <li>Stat Effect system players have a Stat Effect component manager which adds, updates and removes stat effects. Stat Effects are self contained and have their own logic which effects the player.
+                        <li>A Stat Effect system, players have a Stat Effect component manager which adds, updates and removes stat effects. Stat Effects are self contained and have their own logic which effects the player.
                         </li>
                         <li>Strike combo system.
                         </li>
@@ -156,7 +149,7 @@
 
             </div>
 
-            <div class="col-lg">
+            <div class="col-xl">
                 <br>
                 <br>
                 <img class="d-block w-100" src="images/Web Loot (1).gif" alt="loot1"> <br>

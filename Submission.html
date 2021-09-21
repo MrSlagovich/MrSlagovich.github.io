@@ -6,224 +6,136 @@
 
 <head></head>
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="js/NavbarJS.js"></script>
+<script src="js/MyJS.js"></script>
+
 <link rel="stylesheet" href="css/Darkly.css" />
 <style>
-        @media all and (max-width: 1920px) {
-
-            /* screen size until 1200px */
-            body {
-                font-size: 1.5em;
-                /* 1.5x default size */
-            }
-
-            img {
-                width: 100%;
-                max-height: 750px;
-            }
+    .thumb-post img {
+        object-fit: none;
+        /* Do not scale the image */
+        object-position: center;
+        /* Center the image within the element */
+        max-height: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    @media all and (max-width: 1920px) {
+        /* screen size until 1200px */
+        body {
+            font-size: 1.5em;
+            /* 1.5x default size */
         }
-
-        @media all and (max-width: 1200px) {
-
-            /* screen size until 1200px */
-            body {
-                font-size: 1.5em;
-                /* 1.5x default size */
-            }
-
-            img {
-                width: 100%;
-                max-height: 750px;
-            }
+        img {
+            width: 100%;
+            max-height: 750px;
         }
-
-        @media all and (max-width: 1000px) {
-
-            /* screen size until 1000px */
-            body {
-                font-size: 1.2em;
-                /* 1.2x default size */
-            }
-
-            img {
-                width: 100%;
-                max-height: 750px;
-            }
+    }
+    
+    @media all and (max-width: 1200px) {
+        /* screen size until 1200px */
+        body {
+            font-size: 1.5em;
+            /* 1.5x default size */
         }
-
-        @media all and (max-width: 500px) {
-
-            /* screen size until 500px */
-            body {
-                font-size: 0.8em;
-                /* 0.8x default size */
-            }
-
-            img {
-                width: 100%;
-                max-height: 500px;
-            }
+        img {
+            width: 100%;
+            max-height: 750px;
         }
-    </style>
+    }
+    
+    @media all and (max-width: 1000px) {
+        /* screen size until 1000px */
+        body {
+            font-size: 1.2em;
+            /* 1.2x default size */
+        }
+        img {
+            width: 100%;
+            max-height: 750px;
+        }
+    }
+    
+    @media all and (max-width: 500px) {
+        /* screen size until 500px */
+        body {
+            font-size: 0.8em;
+            /* 0.8x default size */
+        }
+        img {
+            width: 100%;
+            max-height: 500px;
+        }
+    }
+</style>
 <title>Submission</title>
-
 </head>
 
+<header>
+    <div id="nav-placeholder">
+
+    </div>
+    <div class="jumbotron jumbotron-fluid bg-image" style="
+    background-image: url('images/index_sub.png');
+   background-position: center;
+  ">
+        <div class="container d-flex justify-content-center">
+            <img class="img-fluid " src="images/Submission_Logo_1920x1080.png" alt="loot1" style="max-width: 75%;">
+        </div>
+    </div>
+    <!-- Background image -->
+</header>
+
 <body>
-    <nav class="navbar sticky-top  navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">Bryan Adams Portfolio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Projects
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="Cowboy.html">CowBoy boys</a>
-                        <a class="dropdown-item" href="FPS.html">FPS Level Generator</a>
-                        <a class="dropdown-item" href="Lootchadors.html">Lootchadors</a>
-                        <a class="dropdown-item" href="Submission.html">Submission</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Contact.html">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
-            </li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-        </ol>
-
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100"
-                    src="https://img.itch.zone/aW1hZ2UvMjE5MDU3LzEwMzk1ODQucG5n/original/iiTH1Q.png" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100"
-                    src="https://img.itch.zone/aW1hZ2UvMjE5MDU3LzEwMzM5OTYuanBn/original/JnMDpD.jpg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100"
-                    src="https://img.itch.zone/aW1hZ2UvMjE5MDU3LzEwMzk1ODIucG5n/original/Dxq4QY.png" alt="Third slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100"
-                    src="https://img.itch.zone/aW1hZ2UvMjE5MDU3LzEwMzk1ODMucG5n/original/figRuK.png" alt="Fourth slide">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    </div>
-
-    <div class="container">
+    <div class="container-fluid" style="width: 80%;">
         <div class="row">
-            <div class="col">
+            <div class="col-xl">
                 <br>
                 <br>
-                <h2 class="page-section-heading text-center text-uppercase text-white">Submission</h2>
+
+                <p class="text-left">
+                    <h2 class="font-weight-bold">About The Game: </h2> Submission is a 3D first-person "walking-sim" style game, where the player explores and interacts with their environment to discover the story of the submarine and forge their own narrative. Platform and Engine:
+                    This was made for PC using Unity with C#
+                    <br>
+                    <br>
+                    <h2 class="font-weight-bold">My Role:</h2>
+                    On this project I designed and coded the Radio system. The Radio system allows the player to hold Q or R to increase or decrease the frequency on the radio. Certain frequencies have radio stations within a range and the player can tune in and listen to
+                    music or dialogue from the characters in the story. All the audio was recorded through a broken walkman that chews up tapes. Doing this added to the vibe of the game and made it creepy and eerie.
+                    <br>
+
+                </p>
+                <br>
+                <div class="container text-center">
+                    <a href="https://mrslagovich.itch.io/submission" class="btn btn-primary" role="button" aria-disabled="true">Download Game</a>
+                </div>
+            </div>
+
+            <div class="col-xl">
+                <br>
+                <br>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6pUsDY29XGg" allowfullscreen></iframe>
+                </div>
+                <br>
+                <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMjE5MDU3LzEwMzM5OTYuanBn/original/JnMDpD.jpg" alt="sub1">
+                <br>
+                <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMjE5MDU3LzEwMzk1ODIucG5n/original/Dxq4QY.png" alt="sub2">
+                <br>
+                <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMjE5MDU3LzEwMzk1ODMucG5n/original/figRuK.png" alt="sub3">
+                <br>
+                <img class="d-block w-100" src="https://img.itch.zone/aW1hZ2UvMjE5MDU3LzEwMzk1ODQucG5n/original/iiTH1Q.png" alt="sub4">
 
             </div>
         </div>
-        <div class="row">
-            <div class="col-md">
-                <br>
-                <br>
-                <p style="border: rgb(222, 226, 230) solid;border-width:1px; padding: 25;" class="text-left">
-                    <span class="font-weight-bold">About:</span> The year is 1982, and the Cold War is
-                    in
-                    full swing. You wake up alone on a submarine, with no memory of who you are or how you got there.
-                    All
-                    you have is a radio, which is picking up signals from the commander of the submarine, and a captain
-                    of
-                    the enemy forces. Who will you follow? The commander, the captain...or neither<br>
-                    <br>
-                    Submission is a 3D first-person "walking-sim" style game, where the player explores and interacts
-                    with
-                    their environment to discover the story of the submarine and forge their own narrative.
-                    <span class="font-weight-bold">Platform and Engine:</span> This was made for PC using Unity with
-                    C#:<br>
-                    <br>
-                    <span class="font-weight-bold">Time Frame:</span> This was originally made in 48 hours during Global
-                    Game Jam 2018, but is currently being developed as my fourth-year university project to explore the
-                    use
-                    of game AI for managing interactive fiction. <br>
-                    <br>
-                    <span class="font-weight-bold">Target audience:</span> The intended users are indie studios and
-                    people
-                    looking to rapid prototype levels. <br>
-                    <br>
-                    <span class="font-weight-bold">PC Controls:</span><br>
-
-                    WASD - Movement<br>
-
-                    E - Interact<br>
-
-                    Q - Open and close Walkman<br>
-
-                    Z and X- Change frequency</p>
-            </div>
-
-            <div class="col-lg">
-                <br>
-                <br>
-                <a href="https://mrslagovich.itch.io/submission" class="btn btn-primary " role="button"
-                aria-disabled="true">Download</a>                <img class="d-block w-100"
-                    src="https://img.itch.zone/aW1hZ2UvMjE5MDU3LzEwMzk1ODQucG5n/original/iiTH1Q.png" alt="loot1">
-                    <br>
-                    <br>
-                <img class="d-block w-100"
-                    src="https://img.itch.zone/aW1hZ2UvMjE5MDU3LzEwMzM5OTYuanBn/original/JnMDpD.jpg" alt="loot2">
-                    <br>
-                    <br>
-                <img class="d-block w-100"
-                    src="https://img.itch.zone/aW1hZ2UvMjE5MDU3LzEwMzk1ODIucG5n/original/Dxq4QY.png" alt="loot3">
-                    <br>
-                    <br>
-                <img class="d-block w-100"
-                    src="https://img.itch.zone/aW1hZ2UvMjE5MDU3LzEwMzk1ODMucG5n/original/figRuK.png" alt="loot4">
-                    <br>
-                    <br>
-            </div>
-        </div>
-    </div>
 
 </body>
 
