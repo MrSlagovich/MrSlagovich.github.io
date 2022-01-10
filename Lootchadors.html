@@ -174,22 +174,27 @@
                 </div>
                 <h2 class="font-weight-bold">About</h2>
                 <div class="mb-3">Lootchadors is a party beat 'em up multiplayer game being developed in UE4. The aim of the game is to loot fun environments and finish the match with the most money. You can throw, punch, dash and use power ups on each other to cause mayhem!
-                    Lootchadors is Saturday Morning Cartoons meets Pro Wrestling mixed with Slapstick Humour!</div>
-
-                <div class="d-md-none">
-                    <a href="images/Web Looting MP 2.gif" data-toggle="lightbox" data-gallery="example-gallery">
-                        <img src="images/Twitter Looting MP 2.gif" class="img-fluid">
-                    </a>
+                    Lootchadors is Saturday Morning Cartoons meets Pro Wrestling mixed with Slapstick Humour!
+                    <br><br> I started the project in June 2021. I wanted to create a vertical slice of a game concept I'd had for years and to improve my C++ and UE4 skills. I had a list of core features I wanted. Looting, Combat, Multiplayer, Action/Follow
+                    Camera & Character Select System.
+                    <div class="d-md-none">
+                        <br><br>
+                        <a href="images/Web Looting MP 2.gif" data-toggle="lightbox" data-gallery="example-gallery">
+                            <img src="images/Twitter Looting MP 2.gif" class="img-fluid">
+                        </a>
+                    </div>
                 </div>
 
+
+
                 <h2 class="font-weight-bold mt-3">Features</h2>
-                <div class="mb-3">List of features I designed and implemented for the project.</div>
+                <div class="mb-3">List of features I designed and developed for the project.</div>
                 <ul>
                     <li>Lootable Objects & Interaction System.
                     </li>
                     <li>Creating Skins and Characters Pipeline.
                     </li>
-                    <li>Character Selection Screen.
+                    <li>Character Selection System.
                     </li>
                     <li>Dynamic Camera System that keeps the action on screen. </li>
                     <li>Off-Screen Camera System which draws a view of a player if the action spills off-screen. Means the main camera doesn't zoom out so far that no one can see themselves in the game.
@@ -206,7 +211,16 @@
                     </li>
                     <li>Taunting.</li>
                 </ul>
+                <h2 class="font-weight-bold mt-3">Breakdown of Some Features</h2>
+                The Character Pipeline is setup so characters can be added easily by desingers/artists and it's modular so down the line users can mix and match character parts to create new characters. The back end of this system is made up of 3 key parts. DataTable,
+                DataAsset and a Parser. The DataTable holds references to Character Config files (Data Assets) these config files hold the characters name and references to different clothing parts (headware, mask, torso, arms, legs). When users cycle
+                through characters it parses the current selected config in the table and updates the characters appearance. The system supports Characters and different skins per character.
+                <br><br> Another system I'm quite happy with is the off-screen camera system. We had a problem where the main camera would zoom out to keep all characters on screen and it made the players too small and made the game hard to play. We designed
+                the Off-Screen Camera system to fix this. If a player goes out of view for the main camera we create a widget on the screen which is at the sides of the screen. Its placement on the screen is based on where the player is relative to the
+                center of the screen. We used render to texture to achive this and some maths to figure out the direction and placement of the widget on the screen.
             </div>
+
+
             <div class="col-xl-7 col-12 image-grid">
                 <div class="d-flex flex-row flex-wrap justify-content-center">
                     <div class="d-flex flex-column">
