@@ -9,13 +9,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" integrity="sha512-Velp0ebMKjcd9RiCoaHhLXkR1sFoCCWXNp6w4zj1hfMifYB5441C+sKeBl/T/Ka6NjBiRfBBQRaQq65ekYz3UQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" integrity="sha512-Y2IiVZeaBwXG1wSV7f13plqlmFOx8MdjuHyYFVoYzhyRr3nH/NMDjTBSswijzADdNzMyWNetbLMfOpIPl6Cv9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/NavbarJS.js"></script>
     <script src="js/MyJS.js"></script>
 
@@ -30,15 +32,24 @@
             margin-bottom: 1rem;
         }
         
-        @media all and (max-width: 1920px) {
+        .max-width-img {
+            width: 100%;
+            max-height: 750px;
+        }
+        
+        .image-grid>.flex-row>.flex-column {
+            max-width: 256px;
+        }
+        
+        .image-grid>.flex-row>.flex-column>a>img {
+            padding: 0.5rem;
+        }
+        
+        @media all and (max-width: 9999px) {
             /* screen size until 1200px */
             body {
                 font-size: 1.5em;
                 /* 1.5x default size */
-            }
-            img {
-                width: 100%;
-                max-height: 750px;
             }
         }
         
@@ -48,10 +59,6 @@
                 font-size: 1.5em;
                 /* 1.5x default size */
             }
-            img {
-                width: 100%;
-                max-height: 750px;
-            }
         }
         
         @media all and (max-width: 1000px) {
@@ -59,10 +66,6 @@
             body {
                 font-size: 1.2em;
                 /* 1.2x default size */
-            }
-            img {
-                width: 100%;
-                max-height: 750px;
             }
         }
         
@@ -72,11 +75,77 @@
                 font-size: 0.8em;
                 /* 0.8x default size */
             }
-            img {
-                width: 100%;
-                max-height: 500px;
+        }
+        /* Style the Image Used to Trigger the Modal */
+        
+        #myImg {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        #myImg:hover {
+            opacity: 0.7;
+        }
+        /* The Modal (background) */
+        
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1500 !important;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Black w/ opacity */
+        }
+        
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
             }
         }
+        /* The Close Button */
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* 100% Image Width on Smaller Screens */
+        
+        @media only screen and (max-width: 700px) {
+            .modal-content {
+                width: 100%;
+            }
+        }
+        /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
     </style>
     <title>Lootchadors</title>
 
@@ -87,101 +156,104 @@
 
     </div>
     <div class="jumbotron jumbotron-fluid bg-image" style="
-    background-image: url('images/LootPortfolioGrid.jpg');
+    background-image: url('images/4 Player fight.gif');
    background-position: center;
   ">
         <div class="container d-flex justify-content-center">
             <img class="img-fluid " src="images/LT_logo_LaffRiot.png" alt="loot1" style="max-width: 75%;">
         </div>
     </div>
-    <!-- Background image -->
 </header>
 
 <body>
     <div class="container-fluid" style="width: 80%;">
         <div class="row">
-            <div class="col-xl">
-                <!-- <br>
-                <br>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0-UuL3QsoIY" allowfullscreen></iframe>
-                </div>
-                <br>
-                <br> -->
-
-
-
-                <p class="text-left">
-
-                    <h2 class="font-weight-bold">About The Game:</h2> Lootchadors is a party beat 'em up multiplayer game. The aim of the game is to loot fun environments and be the one to have the most loot at the end of the round. You can throw each other, punch each other, use
-                    power ups on each other and dash into each other to cause mayhem! Simply put Lootchadors is Saturday Morning Cartoons meets Pro Wrestling mixed with Slapstick Humour!
-                    <br>
-                    <br> The game is being developed in UE4 and I’m currently working towards having a polished prototype.
-                    <br>
-                    <br>
-
-                    <h2 class="font-weight-bold">My Role:</h2>
-                    I'm the Director and Gameplay Programmer. So I've been designing and implementing mechanics, dealing with outsourcing work, Social Media and Marketing and project management.
-                    <br>
-                    <br> Some features I’ve designed and implemented:
-                    <ul>
-                        <li>Camera that moves its position and follows the average position between all players. </li>
-                        <li>Offscreen Camera System which draws a view of a player if they are too small in the current viewport or offscreen. Means the main gameplay camera doesn’t zoom out so far that no one can see themselves in the game.
-                        </li>
-                        <li>A Stat Effect system, players have a Stat Effect component manager which adds, updates and removes stat effects. Stat Effects are self contained and have their own logic which effects the player.
-                        </li>
-                        <li>Strike combo system.
-                        </li>
-                        <li>Grappling and throwing opponents.
-                        </li>
-                        <li>Score Tracking.
-
-                        </li>
-                        <li>Lootable objects & interaction system.
-                        </li>
-                        <li>Picking up and throwing objects.
-                        </li>
-                        <li>Taunting.</li>
-                    </ul>
-
-                </p>
-
-            </div>
-
-            <div class="col-xl">
-                <div class="embed-responsive embed-responsive-16by9">
+            <div class="col">
+                <div class="embed-responsive embed-responsive-16by9 mb-3">
                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Edj24c_zYwg" allowfullscreen></iframe>
-                </div> <br>
-                <a href="images/Web Looting MP 2.gif">
-                    <img class="d-block w-100" src="images/Web Looting MP 2.gif" alt="loot1">
-                </a>
-                <br>
-                <a href="images/Web Throw MP.gif">
-                    <img class="d-block w-100" src="images/Web Throw MP.gif" alt="loot2">
-                </a>
+                </div>
+                <h2 class="font-weight-bold">About</h2>
+                <div class="mb-3">Lootchadors is a party beat 'em up multiplayer game being developed in UE4. The aim of the game is to loot fun environments and finish the match with the most money. You can throw, punch, dash and use power ups on each other to cause mayhem!
+                    Lootchadors is Saturday Morning Cartoons meets Pro Wrestling mixed with Slapstick Humour!</div>
 
-                <br>
-                <a href="images/Web combo MP.gif">
-                    <img class="d-block w-100" src="images/Web combo MP.gif" alt="loot3">
-                </a>
-                <br>
-                <a href="images/Web oil slick MP.gif">
-                    <img class="d-block w-100" src="images/Web oil slick MP.gif" alt="loot4">
-                </a>
-                <br>
-                <a href="images/Web dash + taunt MP.gif">
-                    <img class="d-block w-100" src="images/Web dash + taunt MP.gif" alt="loot4">
-                </a>
-                <br>
-                <a href="images/Web OffScreenCam.gif">
-                    <img class="d-block w-100" src="images/Web OffScreenCam.gif" alt="loot4">
-                </a>
-                <br>
+                <div class="d-md-none">
+                    <a href="images/Web Looting MP 2.gif" data-toggle="lightbox" data-gallery="example-gallery">
+                        <img src="images/Twitter Looting MP 2.gif" class="img-fluid">
+                    </a>
+                </div>
 
+                <h2 class="font-weight-bold mt-3">Features</h2>
+                <div class="mb-3">List of features I designed and implemented for the project.</div>
+                <ul>
+                    <li>Lootable Objects & Interaction System.
+                    </li>
+                    <li>Creating Skins and Characters Pipeline.
+                    </li>
+                    <li>Character Selection Screen.
+                    </li>
+                    <li>Dynamic Camera System that keeps the action on screen. </li>
+                    <li>Off-Screen Camera System which draws a view of a player if the action spills off-screen. Means the main camera doesn't zoom out so far that no one can see themselves in the game.
+                    </li>
+                    <li>Stat Effect System, these are used for adding cosmetic and gameplay effects to player. Used for dropping players money, used for stun effect and sliding on an Oil Slick.
+                    </li>
+                    <li>Strike Combo System.
+                    </li>
+                    <li>Grappling and Throwing Opponents.
+                    </li>
+                    <li>Score Tracking.
+                    </li>
+                    <li>Picking Up and Throwing Objects.
+                    </li>
+                    <li>Taunting.</li>
+                </ul>
             </div>
-
+            <div class="col-xl-7 col-12 image-grid">
+                <div class="d-flex flex-row flex-wrap justify-content-center">
+                    <div class="d-flex flex-column">
+                        <a href="images/Web Looting MP 2.gif" data-toggle="lightbox" data-gallery="example-gallery">
+                            <img src="images/Twitter Looting MP 2.gif" class="img-fluid">
+                        </a>
+                        <a href="images/Web combo MP.gif" data-toggle="lightbox" data-gallery="example-gallery">
+                            <img src="images/Twitter combo MP.gif" class="img-fluid">
+                        </a>
+                        <a href="images/Web oil slick MP.gif" data-toggle="lightbox" data-gallery="example-gallery">
+                            <img src="images/Twitter oil slick MP.gif" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <a href="images/Web Throw MP.gif" data-toggle="lightbox" data-gallery="example-gallery">
+                            <img src="images/Twitter Throw MP.gif" class="img-fluid">
+                        </a>
+                        <a href="images/Web dash + taunt MP.gif" data-toggle="lightbox" data-gallery="example-gallery">
+                            <img src="images/Twitter dash + taunt MP.gif" class="img-fluid">
+                        </a>
+                        <a href="images/Web OffScreenCam.gif" data-toggle="lightbox" data-gallery="example-gallery">
+                            <img src="images/Twitter OffScreenCam.gif" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <a href="images/1 Player open vault.gif" data-toggle="lightbox" data-gallery="example-gallery">
+                            <img src="images/compressed/1 Player open vault.gif" class="img-fluid">
+                        </a>
+                        <a href="images/1PlayerSecurityCams.gif" data-toggle="lightbox" data-gallery="example-gallery">
+                            <img src="images/compressed/1PlayerSecurityCams.gif" class="img-fluid">
+                        </a>
+                        <a href="images/CharSelectWithMasks512x512.gif" data-toggle="lightbox" data-gallery="example-gallery">
+                            <img src="images/compressed/CharSelectWithMasks512x512.gif" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script>
+        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+    </script>
 </body>
+
+
 
 </html>
