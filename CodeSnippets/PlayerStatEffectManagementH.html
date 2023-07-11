@@ -1,0 +1,91 @@
+<div>
+  <pre
+    class="code_syntax"
+    style="
+      color: #d1d1d1;
+      background: #000000;
+      overflow: scroll;
+      max-height: 500px;
+    "
+  ><span class="line_wrapper"><span style="color:#9999a9; ">// Fill out your copyright notice in the Description page of Project Settings.</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">pragma</span><span style="color:#904050; "> once</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">CoreMinimal.h</span><span style="color:#02d045; ">"</span></span>
+<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">Components/ActorComponent.h</span><span style="color:#02d045; ">"</span></span>
+<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">StatEffect.h</span><span style="color:#02d045; ">"</span></span>
+<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">../LootchadorsCharacter.h</span><span style="color:#02d045; ">"</span></span>
+<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">PlayerStatEffectManagement.generated.h</span><span style="color:#02d045; ">"</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">UCLASS<span style="color:#d2cd86; ">(</span>BlueprintType<span style="color:#d2cd86; ">,</span> Blueprintable<span style="color:#d2cd86; ">,</span> ClassGroup <span style="color:#d2cd86; ">=</span> <span style="color:#d2cd86; ">(</span>Custom<span style="color:#d2cd86; ">)</span><span style="color:#d2cd86; ">,</span> meta <span style="color:#d2cd86; ">=</span> <span style="color:#d2cd86; ">(</span>BlueprintSpawnableComponent<span style="color:#d2cd86; ">)</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">class</span> LOOTCHADORS_API UPlayerStatEffectManagement <span style="color:#b060b0; ">:</span> <span style="color:#e66170; font-weight:bold; ">public</span> UActorComponent</span>
+<span class="line_wrapper"><span style="color:#b060b0; ">{</span></span>
+<span class="line_wrapper">    GENERATED_BODY<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">public</span><span style="color:#e34adc; ">:</span></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">private</span><span style="color:#e34adc; ">:</span></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span><span style="color:#90b0e0; "> Remove a specified stat effect from the players list of stat effects</span></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@param</span><span style="color:#90b0e0; "> inStatEffect Stat Effect to remove from player</span></span>
+<span class="line_wrapper">    <span style="color:#e66170; font-weight:bold; ">void</span> RemoveStatEffect<span style="color:#d2cd86; ">(</span>AStatEffect <span style="color:#d2cd86; ">*</span><span style="color:#d2cd86; ">&amp;</span>inStatEffect<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">protected</span><span style="color:#e34adc; ">:</span></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">public</span><span style="color:#e34adc; ">:</span></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span><span style="color:#90b0e0; "> Adds stat effect to the players list of stat effects</span></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@param</span><span style="color:#90b0e0; "> inStatEffect</span></span>
+<span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    <span style="color:#e66170; font-weight:bold; ">void</span> AddStatEffect<span style="color:#d2cd86; ">(</span>AStatEffect <span style="color:#d2cd86; ">*</span>inStatEffect<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@param</span><span style="color:#90b0e0; "> StatCfg Config</span></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@param</span><span style="color:#90b0e0; "> InstanceParams</span></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@param</span><span style="color:#90b0e0; "> Transform Position of actor to apply the visual parts of the stat effect</span></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@param</span><span style="color:#90b0e0; "> Successful Whether it had been successfully applied to the player</span></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@return</span></span>
+<span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintImplementableEvent<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    AStatEffect <span style="color:#d2cd86; ">*</span>ApplyStatEffect_Impl<span style="color:#d2cd86; ">(</span>FDataTableRowHandle StatCfg<span style="color:#d2cd86; ">,</span> FStatEffectInstanceParams InstanceParams<span style="color:#d2cd86; ">,</span> FTransform Transform<span style="color:#d2cd86; ">,</span> <span style="color:#e66170; font-weight:bold; ">bool</span> <span style="color:#d2cd86; ">&amp;</span>Successful<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    AStatEffect <span style="color:#d2cd86; ">*</span>ApplyStatEffect<span style="color:#d2cd86; ">(</span>FDataTableRowHandle StatCfg<span style="color:#d2cd86; ">,</span> FStatEffectInstanceParams InstanceParams<span style="color:#d2cd86; ">,</span> FTransform Transform<span style="color:#d2cd86; ">,</span> <span style="color:#e66170; font-weight:bold; ">bool</span> <span style="color:#d2cd86; ">&amp;</span>Successful<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper">    <span style="color:#9999a9; ">// FStatEffectParams</span></span>
+<span class="line_wrapper">    <span style="color:#9999a9; ">// StatParams.FloatParams[StatParams.Money.InitialValue]</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    <span style="color:#9999a9; ">/*Adds a stat effect to the update queue to be added pre-tick. Prevents crash*/</span></span>
+<span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    <span style="color:#e66170; font-weight:bold; ">void</span> QueueStatEffect<span style="color:#d2cd86; ">(</span>FDataTableRowHandle StatCfg<span style="color:#d2cd86; ">,</span> FStatEffectInstanceParams InstanceParams<span style="color:#d2cd86; ">,</span> FTransform Transform<span style="color:#d2cd86; ">,</span> <span style="color:#e66170; font-weight:bold; ">bool</span> <span style="color:#d2cd86; ">&amp;</span>Successful<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span><span style="color:#90b0e0; "> Used to update all stat effects and check if they need to be killed</span></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@param</span><span style="color:#90b0e0; "> DeltaSeconds</span></span>
+<span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    <span style="color:#e66170; font-weight:bold; ">void</span> UpdateStatEffectsOnTick<span style="color:#d2cd86; ">(</span><span style="color:#e66170; font-weight:bold; ">float</span> DeltaSeconds<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    <span style="color:#e66170; font-weight:bold; ">void</span> PrintTMapValues<span style="color:#d2cd86; ">(</span>FString WhereCalledFrom<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span><span style="color:#90b0e0; "> A TMap that stores added the currently applied gameplay tags from the stat effect and the number of times it's current been applied</span></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// Used for stacking stat effects and removing them once the count is 0 for a given stat effects gameplay tag</span></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">PlayerStatEffectManagement</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    TMap<span style="color:#b060b0; ">&lt;</span>FGameplayTag<span style="color:#d2cd86; ">,</span> <span style="color:#e66170; font-weight:bold; ">int</span><span style="color:#b060b0; ">&gt;</span> RefCountedAbilityTags<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span><span style="color:#90b0e0; "> Array containing all of the currently applied stat effects</span></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">PlayerStatEffectManagement</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    TArray<span style="color:#b060b0; ">&lt;</span>AStatEffect <span style="color:#d2cd86; ">*</span><span style="color:#b060b0; ">&gt;</span> ActiveStatEffects<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span><span style="color:#90b0e0; "> Array containing all of the currently queued stat effects</span></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>Transient<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    TArray<span style="color:#b060b0; ">&lt;</span>AStatEffect <span style="color:#d2cd86; ">*</span><span style="color:#b060b0; ">&gt;</span> QueuedStatEffects<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"><span style="color:#b060b0; ">}</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span></pre>
+  <div>
+    <h2 class="font-weight-bold mt-3">
+      PlayerStatEffectManagement.h
+      <div class="btn-group">
+        <a
+          href="/CodeSnippets/PlayerStatEffectManagementH.html"
+          class="btn btn-primary"
+          role="button"
+          >Raw</a
+        >
+      </div>
+    </h2>
+  </div>
+</div>

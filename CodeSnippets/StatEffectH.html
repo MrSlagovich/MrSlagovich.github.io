@@ -1,0 +1,119 @@
+<div>
+  <pre
+    class="code_syntax"
+    style="
+      color: #d1d1d1;
+      background: #000000;
+      overflow: scroll;
+      max-height: 500px;
+    "
+  ><span class="line_wrapper"><span style="color:#9999a9; ">// Fill out your copyright notice in the Description page of Project Settings.</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">pragma</span><span style="color:#904050; "> once</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">CoreMinimal.h</span><span style="color:#02d045; ">"</span></span>
+<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">GameFramework/Actor.h</span><span style="color:#02d045; ">"</span></span>
+<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">StatEffect_CFG.h</span><span style="color:#02d045; ">"</span></span>
+<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">../LootchadorsCharacter.h</span><span style="color:#02d045; ">"</span></span>
+<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">StatEffect.generated.h</span><span style="color:#02d045; ">"</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#90b0e0; ">/// States of a stat effect</span></span>
+<span class="line_wrapper">UENUM<span style="color:#d2cd86; ">(</span>BlueprintType<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">enum</span> <span style="color:#e66170; font-weight:bold; ">class</span> EStatEffectState <span style="color:#b060b0; ">:</span> uint8</span>
+<span class="line_wrapper"><span style="color:#b060b0; ">{</span></span>
+<span class="line_wrapper">    Inactive<span style="color:#d2cd86; ">,</span></span>
+<span class="line_wrapper">    Active<span style="color:#d2cd86; ">,</span></span>
+<span class="line_wrapper">    Infinite<span style="color:#d2cd86; ">,</span></span>
+<span class="line_wrapper">    NeedsKilled<span style="color:#d2cd86; ">,</span></span>
+<span class="line_wrapper">    Zombie</span>
+<span class="line_wrapper"><span style="color:#b060b0; ">}</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#90b0e0; ">/// Type of Stat Effect</span></span>
+<span class="line_wrapper">UENUM<span style="color:#d2cd86; ">(</span>BlueprintType<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">enum</span> <span style="color:#e66170; font-weight:bold; ">class</span> EStatEffectTimeType <span style="color:#b060b0; ">:</span> uint8</span>
+<span class="line_wrapper"><span style="color:#b060b0; ">{</span></span>
+<span class="line_wrapper">    Duration<span style="color:#d2cd86; ">,</span></span>
+<span class="line_wrapper">    Infinite</span>
+<span class="line_wrapper"><span style="color:#b060b0; ">}</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">USTRUCT<span style="color:#d2cd86; ">(</span>BlueprintType<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">struct</span> FStatEffectCFG <span style="color:#b060b0; ">:</span> <span style="color:#e66170; font-weight:bold; ">public</span> FTableRowBase</span>
+<span class="line_wrapper"><span style="color:#b060b0; ">{</span></span>
+<span class="line_wrapper">    GENERATED_USTRUCT_BODY<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadOnly<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">Stat Effect</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    TSubclassOf<span style="color:#b060b0; ">&lt;</span>AStatEffect<span style="color:#b060b0; ">&gt;</span> ClassToSpawn<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadOnly<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">Stat Effect</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    UStatEffect_CFG <span style="color:#d2cd86; ">*</span>StatEffectCFG<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"><span style="color:#b060b0; ">}</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">USTRUCT<span style="color:#d2cd86; ">(</span>BlueprintType<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">struct</span> FStatEffectInstanceParams</span>
+<span class="line_wrapper"><span style="color:#b060b0; ">{</span></span>
+<span class="line_wrapper">    GENERATED_USTRUCT_BODY<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">public</span><span style="color:#e34adc; ">:</span></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    TMap<span style="color:#b060b0; ">&lt;</span>FGameplayTag<span style="color:#d2cd86; ">,</span> <span style="color:#e66170; font-weight:bold; ">float</span><span style="color:#b060b0; ">&gt;</span> FloatParams<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    TMap<span style="color:#b060b0; ">&lt;</span>FGameplayTag<span style="color:#d2cd86; ">,</span> FVector<span style="color:#b060b0; ">&gt;</span> VectorParams<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"><span style="color:#b060b0; ">}</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">UCLASS<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">class</span> LOOTCHADORS_API AStatEffect <span style="color:#b060b0; ">:</span> <span style="color:#e66170; font-weight:bold; ">public</span> AActor</span>
+<span class="line_wrapper"><span style="color:#b060b0; ">{</span></span>
+<span class="line_wrapper">    GENERATED_BODY<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">public</span><span style="color:#e34adc; ">:</span></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">Stat Effect</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    EStatEffectState EffectState<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">Stat Effect</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    EStatEffectTimeType TimeType<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">Stat Effect</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    EStatEffectType Type<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">Stat Effect</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    UStatEffect_CFG <span style="color:#d2cd86; ">*</span>StatEffectCFGs<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">Stat Effect</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    <span style="color:#e66170; font-weight:bold; ">float</span> StatDuration <span style="color:#d2cd86; ">=</span> <span style="color:#009f00; ">10.0</span><span style="color:#006600; ">f</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">Stat Effect</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    <span style="color:#e66170; font-weight:bold; ">float</span> CurrentLifetime <span style="color:#d2cd86; ">=</span> <span style="color:#009f00; ">0.0</span><span style="color:#006600; ">f</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>Transient<span style="color:#d2cd86; ">)</span> <span style="color:#9999a9; ">// never want this to save</span></span>
+<span class="line_wrapper">    ALootchadorsCharacter <span style="color:#d2cd86; ">*</span>OwningChar<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> meta <span style="color:#d2cd86; ">=</span> <span style="color:#d2cd86; ">(</span>ExposeOnSpawn <span style="color:#d2cd86; ">=</span> <span style="color:#e66170; font-weight:bold; ">true</span><span style="color:#d2cd86; ">)</span><span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    FStatEffectInstanceParams InstanceParams<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">protected</span><span style="color:#e34adc; ">:</span></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">public</span><span style="color:#e34adc; ">:</span></span>
+<span class="line_wrapper">    <span style="color:#9999a9; ">// On Functions are called and implmented in blueprint for adding visuals</span></span>
+<span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">,</span> BlueprintImplementableEvent<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    <span style="color:#e66170; font-weight:bold; ">void</span> OnApply<span style="color:#d2cd86; ">(</span>ALootchadorsCharacter <span style="color:#d2cd86; ">*</span>OwnerChar<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">,</span> BlueprintImplementableEvent<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    <span style="color:#e66170; font-weight:bold; ">void</span> <span style="color:#e66170; font-weight:bold; ">OnUpdate</span><span style="color:#d2cd86; ">(</span><span style="color:#e66170; font-weight:bold; ">float</span> DeltaSeconds<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">,</span> BlueprintImplementableEvent<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    <span style="color:#e66170; font-weight:bold; ">void</span> OnRemove<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper">    <span style="color:#9999a9; ">// Allow scripting to define how long this should last - useful for matching up stat durations with animations/sequences etc.</span></span>
+<span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">,</span> BlueprintNativeEvent<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    <span style="color:#e66170; font-weight:bold; ">float</span> GetStatDuration<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">,</span> BlueprintNativeEvent<span style="color:#d2cd86; ">)</span></span>
+<span class="line_wrapper">    EStatEffectType GetStatEffectType<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">private</span><span style="color:#e34adc; ">:</span></span>
+<span class="line_wrapper"><span style="color:#b060b0; ">}</span><span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span></pre>
+  <div>
+    <h2 class="font-weight-bold mt-3">
+      StatEffect.h
+      <div class="btn-group">
+        <a
+          href="/CodeSnippets/StatEffectH.html"
+          class="btn btn-primary"
+          role="button"
+          >Raw</a
+        >
+      </div>
+    </h2>
+  </div>
+</div>
