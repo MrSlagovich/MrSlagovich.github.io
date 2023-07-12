@@ -7,9 +7,7 @@
       overflow: scroll;
       max-height: 500px;
     "
-  ><span class="line_wrapper"><span style="color:#9999a9; ">// Fill out your copyright notice in the Description page of Project Settings.</span></span>
-<span class="line_wrapper"></span>
-<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">PlayerStatEffectManagement.h</span><span style="color:#02d045; ">"</span></span>
+  ><span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">PlayerStatEffectManagement.h</span><span style="color:#02d045; ">"</span></span>
 <span class="line_wrapper"></span>
 <span class="line_wrapper"><span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span><span style="color:#90b0e0; "> Adds provided stat effect to the array of currently active stat effects</span></span>
 <span class="line_wrapper"><span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@param</span><span style="color:#90b0e0; "> inStatEffect</span></span>
@@ -154,7 +152,8 @@
 <span class="line_wrapper">        QueuedStatEffects<span style="color:#d2cd86; ">.</span>Add<span style="color:#d2cd86; ">(</span>_stat<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
 <span class="line_wrapper">    <span style="color:#b060b0; ">}</span></span>
 <span class="line_wrapper"><span style="color:#b060b0; ">}</span></span>
-<span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span><span style="color:#90b0e0; "> Updates the stat effect and checks its EStatEffectType and determins how to manage it based on that</span></span>
+<span class="line_wrapper"><span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@param</span><span style="color:#90b0e0; "> DeltaSeconds</span></span>
 <span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">void</span> UPlayerStatEffectManagement<span style="color:#b060b0; ">::</span>UpdateStatEffectsOnTick<span style="color:#d2cd86; ">(</span><span style="color:#e66170; font-weight:bold; ">float</span> DeltaSeconds<span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper"><span style="color:#b060b0; ">{</span></span>
 <span class="line_wrapper">    ALootchadorsCharacter <span style="color:#d2cd86; ">*</span>Owner <span style="color:#d2cd86; ">=</span> Cast<span style="color:#b060b0; ">&lt;</span>ALootchadorsCharacter<span style="color:#b060b0; ">&gt;</span><span style="color:#d2cd86; ">(</span>GetOwner<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>

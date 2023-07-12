@@ -208,7 +208,6 @@
             </h2>
           </a>
 
-
           <h2 class="font-weight-bold mt-3">Brief Overview of the Project</h2>
 
           <div class="mb-3">
@@ -219,32 +218,44 @@
             Morning Cartoons meets Pro Wrestling mixed with Slapstick Humour!
           </div>
 
-        <div class="d-md-flex">
-                <a
-                href="images/Twitter oil slick MP.gif"
-                data-toggle="lightbox"
-                data-gallery="example-gallery"
-                >
-                <img src="images/Twitter oil slick MP.gif" class="img-fluid" />
-                </a>
+          <div class="d-md-flex">
+            <a
+              href="images/Twitter oil slick MP.gif"
+              data-toggle="lightbox"
+              data-gallery="example-gallery"
+            >
+              <img src="images/Twitter oil slick MP.gif" class="img-fluid" />
+            </a>
           </div>
           <br />
-          <div class="mb-3">
+          <div class="mb-3 font-italic">
             An example of the Oil Slip Stat Effect and the Fully Stunned Stat
             Effect working one after another.
           </div>
 
-
           <h2 class="font-weight-bold mt-3">The Problem</h2>
           <div class="mb-3">
-            While making Lootchadors I realised we needed a system to handle
-            combat interactions and power up effects between players. An example
-            of the types effects this system should cover are being hit by
-            another player, being stunned by another player and slipping on an
-            oil slick. The idea would be to create a system which allows both
-            visual effects and gameplay effects/restraints to be added to
-            players in a simple way with scope for allowing Designers control
-            over these effects.
+            While making Lootchadors I needed a system to handle gameplay events
+            such as combat interactions, and power ups. The goal was to create a
+            system which allows both Gameplay effects, and visual cues, to be
+            added to players in a simple way with scope for allowing Designers
+            control over these effects.
+          </div>
+
+          <div class="d-md-flex">
+            <a
+              href="images/Twitter combo MP.gif"
+              data-toggle="lightbox"
+              data-gallery="example-gallery"
+            >
+              <img src="images/Twitter combo MP.gif" class="img-fluid" />
+            </a>
+          </div>
+          <br />
+          <div class="mb-3 font-italic">
+            An example of the weak stun being applied multiple times and then
+            the Fully Stunned Stat Effect being applied with the drop loot Stat
+            Effect Also being applied.
           </div>
 
           <h2 class="font-weight-bold mt-3">The Solution</h2>
@@ -272,61 +283,59 @@
               animations that are added and removed from the player
             </li>
           </ul>
-          <h2 class="font-weight-bold mt-3">Technical Breakdown</h2>
-          The two core components of a Stat Effect are the GameplayCFG and
-          VisualCFG.
-          <ul>
-            <li>
-              Gameplay CFG contains the type of Stat Effect such as whether its
-              visual or also effects gameplay, Has a Gameplay Tags container
-              which is part of unreal engine, The players state machine will
-              check for certain tags and enter specific gameplay states if those
-              tags are met. For example if a player is hit with a 3 strike combo
-              it adds the Fully Stunned Stat Effect which adds a tag
-              (Player.StatEffect.FullyStunned) which when found by the players
-              state machine puts them into a stunned state where they can’t
-              move. The gameplay CFG also contains a enum for the type of kill
-              condition for a Stat Effect. Some might be time based, some might
-              be specific conditions met in Blueprint or some might only be for
-              one frame.
-            </li>
-            <li>
-              Visual CFG The visual CFG is used to contain visual such as VFX,
-              Level Sequences, Sounds and animations to play. The visual CFG is
-              purely for cosmetics and doesn’t effect the players state. It
-              works more as an overlay.
-            </li>
-          </ul>
+
+          <div class="d-md-flex">
+            <a
+              href="images/Twitter dash + taunt MP.gif"
+              data-toggle="lightbox"
+              data-gallery="example-gallery"
+            >
+              <img src="images/Twitter dash + taunt MP.gif" class="img-fluid" />
+            </a>
+          </div>
           <br />
+          <div class="mb-3 font-italic">
+            An example of the dash ability adding the spin out stat effect to
+            another player
+          </div>
+
+          <h2 class="font-weight-bold mt-3">Technical Breakdown</h2>
+          Stat Effects are comprised of a Gameplay element, and a visual
+          element. They are both implemented as scriptable (blueprintable)
+          objects to allow designers to build out gameplay elements that can
+          modify gameplay for a player, and provide a visual representation of
+          the modifier. The code/system handles lifetime management of these
+          objects, and calls lifecycle events (OnActivate, OnUpdate, OnRemove
+          etc)
+
+          <br />
+          <br />
+
           There’s a Data Table which has a list of StatEffect configs. This
           gives a central location for all Stat Effects and an easy way to
           create Stat Effects from the configs.
-          <br /><br />
-          An example of the flow of a Stat Effect being applied:
-          <br /><br />
-          There’s an Oil Slick placed on the floor. A player collides with it.
-          The Player detects the collision and queries the Oil Slick power up
-          for its Stat Effect. The Oil Slick passes a ref to the table handle of
-          the Stat Effect, the players Stat Effect Manager then adds the Stat
-          Effect to the player which because it has a sliding Gameplay Tag
-          (Player.StatEffect.Sliding) makes the players state machine switch to
-          the sliding state which adds a velocity to the player in their forward
-          vector. The visual part of the Stat Effect is added which is Oil
-          Droplets dripping off (Particle System) and the player plays a sliding
-          animation. This Stat Effect has some custom logic for its end
-          condition which is colliding with a wall which is done in blueprint
-          and notifies the Stat Effect Manager that the effect is to be killed
-          but otherwise Stat Effects typically only last a frame or duration and
-          are handled by the manager. Once the effect is finished/marked for
-          kill the Stat Effect manager will check if the Stat Effect is in the
-          currently active Stat Effects list and remove it or if it’s a
-          stackable Stat Effect remove 1 from the count.
+
           <br /><br />
           That’s pretty much the workflow. The driving force of the stat effects
           are the Gameplay Tags. The player has a container of these and every
           frame the state machine reads them and changes its state based on
           certain tags.
           <br /><br />
+          <div class="d-md-flex">
+            <a
+              href="images/Twitter Combo.gif"
+              data-toggle="lightbox"
+              data-gallery="example-gallery"
+            >
+              <img src="images/Twitter Combo.gif" class="img-fluid" />
+            </a>
+          </div>
+          <br />
+          <div class="mb-3 font-italic">
+            An example of the weak stun being applied multiple times and then
+            the Fully Stunned Stat Effect being applied with the drop loot Stat
+            Effect Also being applied.
+          </div>
           <br /><br />
         </div>
 
@@ -338,51 +347,72 @@
               allowfullscreen
             ></iframe>
           </div>
-                          <div class="container text-center">
-                    <a href="https://drive.google.com/file/d/1qOdnhrOJFWHi45lc0f0dDZjjJdNYC9n5/view?usp=sharing" class="btn btn-primary" role="button" aria-disabled="true">DOWNLOAD SAMPLE CODE</a> <br> <br>
-                </div>
-                    <div id="code-block1">
-                    </div>
-            </div>
+          <div class="container text-center">
+            <a
+              href="https://drive.google.com/file/d/1TgbtwpaIh8PNUPUZ90tpU7o_HGsjwn57/view?usp=sharing"
+              class="btn btn-primary"
+              role="button"
+              aria-disabled="true"
+              >DOWNLOAD SAMPLE CODE</a
+            >
+            <br />
+            <br />
           </div>
+          <div id="code-block1"></div>
         </div>
       </div>
     </div>
     <script>
-      $(document).on("click", '[data-toggle="lightbox"]', function (event) {
-        event.preventDefault();
-        $(this).ekkoLightbox();
+      $(document).ready(function () {
+        $.get(
+          "/CodeSnippets/PlayerStatEffectManagementH.html",
+          function (data) {
+            $("#code-block1").append(data);
+            Prism.highlightAll();
+          },
+          "html"
+        );
+        $.get(
+          "/CodeSnippets/PlayerStatEffectManagementCPP.html",
+          function (data) {
+            $("#code-block1").append(data);
+            Prism.highlightAll();
+          },
+          "html"
+        );
+        $.get(
+          "/CodeSnippets/StatEffectH.html",
+          function (data) {
+            $("#code-block1").append(data);
+            Prism.highlightAll();
+          },
+          "html"
+        );
+        $.get(
+          "/CodeSnippets/StatEffectCPP.html",
+          function (data) {
+            $("#code-block1").append(data);
+            Prism.highlightAll();
+          },
+          "html"
+        );
+        $.get(
+          "/CodeSnippets/StatEffect_CFGH.html",
+          function (data) {
+            $("#code-block1").append(data);
+            Prism.highlightAll();
+          },
+          "html"
+        );
+        $.get(
+          "/CodeSnippets/StatEffect_Gameplay_CFGH.html",
+          function (data) {
+            $("#code-block1").append(data);
+            Prism.highlightAll();
+          },
+          "html"
+        );
       });
-      $(document).ready(function() {
-        $.get("/CodeSnippets/PlayerStatEffectManagementH.html", function(data) {
-            $("#code-block1").append(data);
-            Prism.highlightAll();
-        }, "html");
-                $.get("/CodeSnippets/PlayerStatEffectManagementCPP.html", function(data) {
-            $("#code-block1").append(data);
-            Prism.highlightAll();
-        }, "html");
-                $.get("/CodeSnippets/StatEffectH.html", function(data) {
-            $("#code-block1").append(data);
-            Prism.highlightAll();
-        }, "html");
-                $.get("/CodeSnippets/StatEffectCPP.html", function(data) {
-            $("#code-block1").append(data);
-            Prism.highlightAll();
-        }, "html");
-                $.get("/CodeSnippets/StatEffect_CFGH.html", function(data) {
-            $("#code-block1").append(data);
-            Prism.highlightAll();
-        }, "html");
-        $.get("/CodeSnippets/StatEffect_Gameplay_CFGH.html", function(data) {
-            $("#code-block1").append(data);
-            Prism.highlightAll();
-        }, "html");
-                $.get("/CodeSnippets/StatEffect_Vis_CFGH.html", function(data) {
-            $("#code-block1").append(data);
-            Prism.highlightAll();
-        }, "html");
-          });
     </script>
   </body>
 </html>

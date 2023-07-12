@@ -7,21 +7,15 @@
       overflow: scroll;
       max-height: 500px;
     "
-  ><span class="line_wrapper"><span style="color:#9999a9; ">// Fill out your copyright notice in the Description page of Project Settings.</span></span>
-<span class="line_wrapper"></span>
+  >
 <span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">pragma</span><span style="color:#904050; "> once</span></span>
-<span class="line_wrapper"></span>
 <span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">CoreMinimal.h</span><span style="color:#02d045; ">"</span></span>
 <span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">Engine/DataAsset.h</span><span style="color:#02d045; ">"</span></span>
 <span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">StatEffect_Gameplay_CFG.h</span><span style="color:#02d045; ">"</span></span>
 <span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">StatEffect_Vis_CFG.h</span><span style="color:#02d045; ">"</span></span>
 <span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">StatEffect_CFG.generated.h</span><span style="color:#02d045; ">"</span></span>
 <span class="line_wrapper"></span>
-<span class="line_wrapper"><span style="color:#90b0e0; ">/**</span></span>
-<span class="line_wrapper"><span style="color:#90b0e0; "> *</span></span>
-<span class="line_wrapper"><span style="color:#90b0e0; "> */</span></span>
-<span class="line_wrapper"></span>
-<span class="line_wrapper"><span style="color:#9999a9; ">// CFG</span></span>
+<span class="line_wrapper"><span style="color:#9999a9; ">// Container for storing Configs</span></span>
 <span class="line_wrapper">USTRUCT<span style="color:#d2cd86; ">(</span>BlueprintType<span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">struct</span> LOOTCHADORS_API FCfgs</span>
 <span class="line_wrapper"><span style="color:#b060b0; ">{</span></span>
@@ -29,6 +23,8 @@
 <span class="line_wrapper">    <span style="color:#90b0e0; ">/// Gameplay CFG such as gameplay tags to add to the player</span></span>
 <span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">StatEffect</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper">    UStatEffect_Gameplay_CFG <span style="color:#d2cd86; ">*</span>GameplayCFG<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// Used for storing visual elements such as Particle systems and UI</span></span>
 <span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">StatEffect</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper">    UStatEffect_Vis_CFG <span style="color:#d2cd86; ">*</span>VisualCFG<span style="color:#b060b0; ">;</span></span>
 <span class="line_wrapper"><span style="color:#b060b0; ">}</span><span style="color:#b060b0; ">;</span></span>

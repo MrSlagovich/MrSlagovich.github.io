@@ -7,10 +7,8 @@
       overflow: scroll;
       max-height: 500px;
     "
-  ><span class="line_wrapper"><span style="color:#9999a9; ">// Fill out your copyright notice in the Description page of Project Settings.</span></span>
-<span class="line_wrapper"></span>
+  >
 <span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">pragma</span><span style="color:#904050; "> once</span></span>
-<span class="line_wrapper"></span>
 <span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">CoreMinimal.h</span><span style="color:#02d045; ">"</span></span>
 <span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">Engine/DataAsset.h</span><span style="color:#02d045; ">"</span></span>
 <span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">GameplayTagContainer.h</span><span style="color:#02d045; ">"</span></span>
@@ -20,16 +18,14 @@
 <span class="line_wrapper">UENUM<span style="color:#d2cd86; ">(</span>BlueprintType<span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">enum</span> <span style="color:#e66170; font-weight:bold; ">class</span> EStatEffectType <span style="color:#b060b0; ">:</span> uint8</span>
 <span class="line_wrapper"><span style="color:#b060b0; ">{</span></span>
-<span class="line_wrapper">    Active<span style="color:#d2cd86; ">,</span></span>
-<span class="line_wrapper">    Passive<span style="color:#d2cd86; ">,</span></span>
+<span class="line_wrapper">    Active<span style="color:#d2cd86; ">,</span>        <span style="color:#9999a9; ">// Active until its time condition is met and is then marked for kill</span></span>
+<span class="line_wrapper">    Passive<span style="color:#d2cd86; ">,</span>    <span style="color:#9999a9; ">// No Longer used</span></span>
 <span class="line_wrapper">    Container<span style="color:#d2cd86; ">,</span>    <span style="color:#9999a9; ">// Used for having a base stat effect and another stat effect work at the same time</span></span>
 <span class="line_wrapper">    VisualOnly<span style="color:#d2cd86; ">,</span> <span style="color:#9999a9; ">// Only adds a visual effect and doesn't effect gameplay</span></span>
 <span class="line_wrapper">    OneShot        <span style="color:#9999a9; ">// Triggers once for one frame</span></span>
 <span class="line_wrapper"><span style="color:#b060b0; ">}</span><span style="color:#b060b0; ">;</span></span>
 <span class="line_wrapper"></span>
-<span class="line_wrapper"><span style="color:#90b0e0; ">/**</span></span>
-<span class="line_wrapper"><span style="color:#90b0e0; "> *</span></span>
-<span class="line_wrapper"><span style="color:#90b0e0; "> */</span></span>
+<span class="line_wrapper"><span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span><span style="color:#90b0e0; "> Used to populate rows in the data table and give a structure of information that makes up a stat effect</span></span>
 <span class="line_wrapper">USTRUCT<span style="color:#d2cd86; ">(</span>BlueprintType<span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">struct</span> LOOTCHADORS_API FGameplayParams</span>
 <span class="line_wrapper"><span style="color:#b060b0; ">{</span></span>
@@ -37,17 +33,18 @@
 <span class="line_wrapper">    <span style="color:#9999a9; ">// Gameplay Tags to add to the player</span></span>
 <span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> StatEffect<span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper">    FGameplayTagContainer PlayerStatTags<span style="color:#b060b0; ">;</span></span>
+<span class="line_wrapper"></span>
 <span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> StatEffect<span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper">    EStatEffectType StatEffectType<span style="color:#b060b0; ">;</span></span>
 <span class="line_wrapper"><span style="color:#b060b0; ">}</span><span style="color:#b060b0; ">;</span></span>
 <span class="line_wrapper"></span>
+<span class="line_wrapper"><span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span><span style="color:#90b0e0; "> Data Asset used to construct the data table rows which store stat effects</span></span>
 <span class="line_wrapper">UCLASS<span style="color:#d2cd86; ">(</span>BlueprintType<span style="color:#d2cd86; ">,</span> Blueprintable<span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">class</span> LOOTCHADORS_API UStatEffect_Gameplay_CFG <span style="color:#b060b0; ">:</span> <span style="color:#e66170; font-weight:bold; ">public</span> UPrimaryDataAsset</span>
 <span class="line_wrapper"><span style="color:#b060b0; ">{</span></span>
-<span class="line_wrapper"></span>
 <span class="line_wrapper">    GENERATED_BODY<span style="color:#d2cd86; ">(</span><span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper"><span style="color:#e66170; font-weight:bold; ">public</span><span style="color:#e34adc; ">:</span></span>
-<span class="line_wrapper">    <span style="color:#9999a9; ">// Gameplay parts of the CFG, Gameplay Tags to add and</span></span>
+<span class="line_wrapper">    <span style="color:#9999a9; ">// Gameplay parts of the CFG, Gameplay Tags to add</span></span>
 <span class="line_wrapper">    UPROPERTY<span style="color:#d2cd86; ">(</span>EditAnywhere<span style="color:#d2cd86; ">,</span> BlueprintReadWrite<span style="color:#d2cd86; ">,</span> Category <span style="color:#d2cd86; ">=</span> <span style="color:#02d045; ">"</span><span style="color:#00c4c4; ">StatEffect</span><span style="color:#02d045; ">"</span><span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper">    FGameplayParams Gameplay<span style="color:#b060b0; ">;</span></span>
 <span class="line_wrapper"><span style="color:#b060b0; ">}</span><span style="color:#b060b0; ">;</span></span>

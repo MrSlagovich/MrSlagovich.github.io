@@ -7,9 +7,7 @@
       overflow: scroll;
       max-height: 500px;
     "
-  ><span class="line_wrapper"><span style="color:#9999a9; ">// Fill out your copyright notice in the Description page of Project Settings.</span></span>
-<span class="line_wrapper"></span>
-<span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">pragma</span><span style="color:#904050; "> once</span></span>
+  ><span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">pragma</span><span style="color:#904050; "> once</span></span>
 <span class="line_wrapper"></span>
 <span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">CoreMinimal.h</span><span style="color:#02d045; ">"</span></span>
 <span class="line_wrapper"><span style="color:#008073; ">#</span><span style="color:#008073; ">include </span><span style="color:#02d045; ">"</span><span style="color:#40015a; ">Components/ActorComponent.h</span><span style="color:#02d045; ">"</span></span>
@@ -35,7 +33,7 @@
 <span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper">    <span style="color:#e66170; font-weight:bold; ">void</span> AddStatEffect<span style="color:#d2cd86; ">(</span>AStatEffect <span style="color:#d2cd86; ">*</span>inStatEffect<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
 <span class="line_wrapper"></span>
-<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span></span>
+<span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@brief</span><span style="color:#90b0e0; "> A entry point for creating stat effect logic in blueprints</span></span>
 <span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@param</span><span style="color:#90b0e0; "> StatCfg Config</span></span>
 <span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@param</span><span style="color:#90b0e0; "> InstanceParams</span></span>
 <span class="line_wrapper">    <span style="color:#90b0e0; ">/// </span><span style="color:#8695b8; font-weight:bold; ">@param</span><span style="color:#90b0e0; "> Transform Position of actor to apply the visual parts of the stat effect</span></span>
@@ -46,8 +44,6 @@
 <span class="line_wrapper"></span>
 <span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">)</span></span>
 <span class="line_wrapper">    AStatEffect <span style="color:#d2cd86; ">*</span>ApplyStatEffect<span style="color:#d2cd86; ">(</span>FDataTableRowHandle StatCfg<span style="color:#d2cd86; ">,</span> FStatEffectInstanceParams InstanceParams<span style="color:#d2cd86; ">,</span> FTransform Transform<span style="color:#d2cd86; ">,</span> <span style="color:#e66170; font-weight:bold; ">bool</span> <span style="color:#d2cd86; ">&amp;</span>Successful<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span></span>
-<span class="line_wrapper">    <span style="color:#9999a9; ">// FStatEffectParams</span></span>
-<span class="line_wrapper">    <span style="color:#9999a9; ">// StatParams.FloatParams[StatParams.Money.InitialValue]</span></span>
 <span class="line_wrapper"></span>
 <span class="line_wrapper">    <span style="color:#9999a9; ">/*Adds a stat effect to the update queue to be added pre-tick. Prevents crash*/</span></span>
 <span class="line_wrapper">    UFUNCTION<span style="color:#d2cd86; ">(</span>BlueprintCallable<span style="color:#d2cd86; ">)</span></span>
